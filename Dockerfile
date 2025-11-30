@@ -1,4 +1,5 @@
 FROM python:3.11-slim
+# Railway rebuild: 2025-11-30
 
 WORKDIR /app
 
