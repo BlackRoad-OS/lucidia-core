@@ -1,11 +1,16 @@
 """Lucidia engines and utilities."""
 
-from .core import Vector3
-from .harmony import HarmonyCoordinator, NodeProfile
-from .rpg import Character, Game
+import os
+import sys
 
-__all__ = ["Character", "Game", "Vector3", "HarmonyCoordinator", "NodeProfile"]
-from .rpg import Character, Game
-from .core import Vector3
+# Ensure the repository root is on sys.path so absolute imports resolve correctly
+# when this module is loaded as a top-level package (e.g. during testing).
+_repo_root = os.path.dirname(os.path.abspath(__file__))
+if _repo_root not in sys.path:
+    sys.path.insert(0, _repo_root)
 
-__all__ = ["Character", "Game", "Vector3"]
+from core import Vector3  # noqa: E402
+from harmony import HarmonyCoordinator, NodeProfile  # noqa: E402
+from rpg import Character, Game  # noqa: E402
+
+__all__ = ["Character", "Game", "HarmonyCoordinator", "NodeProfile", "Vector3"]
